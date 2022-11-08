@@ -33,7 +33,7 @@ const FavoriteList = (props) => {
             return (
               <FavoriteItem
                 key={favorite.id}
-                vercelLink={favorite.link}
+                link={favorite.link}
                 github={favorite.github}
               />
             );

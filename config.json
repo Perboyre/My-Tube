@@ -2,7 +2,7 @@
   "name": "Juan Perboyre",
   "job": "Frontend Developer",
   "github": "Perboyre",
-  "bannerImgSrc": "https://source.unsplash.com/zV6FS2v_yAs/1920x1280",
+  "bg": "https://source.unsplash.com/zV6FS2v_yAs/1920x1280",
   "favorites": [
     {
       "id": "1",
@@ -17,7 +17,7 @@
     {
       "id": "3",
       "github": "maykbrito",
-      "link": "https://github.com/maykbrito"
+      "link": "https://www.youtube.com/c/MaykBrito"
     }
   ],
   "playlists": {

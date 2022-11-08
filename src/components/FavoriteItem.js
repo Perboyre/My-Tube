@@ -25,7 +25,7 @@ const StyledFavoriteItem = styled.span`
 const FavoriteItem = (props) => {
   return (
     <StyledFavoriteItem>
-      <a href={props.link}>
+      <a href={props.link} target="_blank">
         <img src={`http://github.com/${props.github}.png`} />
         <span>@{props.github}</span>
       </a>
