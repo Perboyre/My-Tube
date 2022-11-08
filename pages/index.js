@@ -3,107 +3,97 @@ import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
+import Banner from "../src/components/Banner";
+import FavoriteList from "../src/components/FavoriteList";
 
-function HomePage() {
-    const estilosDaHomePage = {
-        // backgroundColor: "red" 
-    };
+const HomePage = () => {
+  const estilosDaHomePage = {
+    display: "flex",
+    flexDirection: "column",
+    flex: 1,
+    // backgroundColor: "red",
+  };
 
-    // console.log(config.playlists);
+  return (
+    <>
+      <CSSReset />
+      <div style={estilosDaHomePage}>
+        <Menu />
+        <Banner imgSrc={config.bannerImgSrc} />
+        <Header />
+        <Timeline playlists={config.playlists} />
+        <FavoriteList favorites={config.favorites}></FavoriteList>
+      </div>
+    </>
+  );
+};
 
-    return (
-        <>
-            <CSSReset />
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                flex: 1,
-                // backgroundColor: "red",
-            }}>
-                <Menu />
-                <Header />
-                <Timeline playlists={config.playlists}>
-                    Conteúdo
-                </Timeline>
-            </div>
-        </>
-    );
-}
-
-export default HomePage
-
-// function Menu() {
-//     return (
-//         <div>
-//             Menu
-//         </div>
-//     )
-// }
-
+export default HomePage;
 
 const StyledHeader = styled.div`
-    img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-    .user-info {
-        margin-top: 50px;
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 16px 32px;
-        gap: 16px;
-    }
+  img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  .user-info {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px 32px;
+    gap: 16px;
+  }
 `;
-function Header() {
-    return (
-        <StyledHeader>
-            {/* <img src="banner" /> */}
-            <section className="user-info">
-                <img src={`https://github.com/${config.github}.png`} />
-                <div>
-                    <h2>
-                        {config.name}
-                    </h2>
-                    <p>
-                        {config.job}
-                    </p>
-                </div>
-            </section>
-        </StyledHeader>
-    )
-}
 
-function Timeline(propriedades) {
-    // console.log("Dentro do componente", propriedades.playlists);
-    const playlistNames = Object.keys(propriedades.playlists);
-    // Statement
-    // Retorno por expressão
-    return (
-        <StyledTimeline>
-            {playlistNames.map((playlistName) => {
-                const videos = propriedades.playlists[playlistName];
-                console.log(playlistName);
-                console.log(videos);
+const Header = (props) => {
+  return (
+    <StyledHeader>
+      {/* <img src="banner" /> */}
+      <section className="user-info">
+        <img src={`http://github.com/${config.github}.png`} />
+        <div>
+          <h2>{config.name}</h2>
+          <p>{config.job}</p>
+        </div>
+      </section>
+    </StyledHeader>
+  );
+};
+
+const Timeline = (props) => {
+  // The Object.keys() method returns an array of a given object's own enumerable property names,
+  // iterated in the same order that a normal loop would.
+  const playlistNames = Object.keys(props.playlists);
+
+  // You can't use statements in React like if/for inside JSX
+  // So to use Conditional Rendering you should use:
+  // 1) Element Variables: variables to store elements
+  // 2) Inline If with Logical && Operator: true && expression / false && expression
+  // 3) Inline If-Else with Conditional Operator: condition ? true : false
+  // 4) Preventing Component from Rendering: return null instead of its render output
+  // https://reactjs.org/docs/conditional-rendering.html
+  // The thing you use the most in React is the .map() function to transform from an object to another
+  return (
+    <StyledTimeline>
+      {playlistNames.map((playlistName) => {
+        const videos = props.playlists[playlistName];
+        return (
+          <section>
+            <h2>{playlistName}</h2>
+            <div>
+              {videos.map((video) => {
                 return (
-                    <section>
-                        <h2>{playlistName}</h2>
-                        <div>
-                            {videos.map((video) => {
-                                return (
-                                    <a href={video.url}>
-                                        <img src={video.thumb} />
-                                        <span>
-                                            {video.title}
-                                        </span>
-                                    </a>
-                                )
-                            })}
-                        </div>
-                    </section>
-                )
-            })}
-        </StyledTimeline>
-    )
-}
+                  <a href={video.url}>
+                    <img src={video.thumb} />
+                    <span>{video.title}</span>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        );
+      })}
+    </StyledTimeline>
+  );
+};

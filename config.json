@@ -2,6 +2,24 @@
   "name": "Juan Perboyre",
   "job": "Frontend Developer",
   "github": "Perboyre",
+  "bannerImgSrc": "https://source.unsplash.com/zV6FS2v_yAs/1920x1280",
+  "favorites": [
+    {
+      "id": "1",
+      "github": "filipedeschamps",
+      "link": "https://www.youtube.com/c/FilipeDeschamps"
+    },
+    {
+      "id": "2",
+      "github": "devsuperior",
+      "link": "https://www.youtube.com/c/DevSuperior"
+    },
+    {
+      "id": "3",
+      "github": "maykbrito",
+      "link": "https://github.com/maykbrito"
+    }
+  ],
   "playlists": {
     "jogos": [
       {
@@ -46,11 +64,6 @@
       }
     ],
     "front-end": [
-      {
-        "title": "Jogo com JavaScript #01: Criando um Flappy Bird do ZERO!!!",
-        "url": "https://youtube.com/watch?v=jOAU81jdi-c",
-        "thumb": "https://img.youtube.com/vi/jOAU81jdi-c/hqdefault.jpg"
-      },
       {
         "title": "Jogo com JavaScript #01: Criando um Flappy Bird do ZERO!!!",
         "url": "https://www.youtube.com/watch?v=llF6vD-RljE",
