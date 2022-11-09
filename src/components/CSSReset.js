@@ -6,9 +6,17 @@ export const CSSReset = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 118.75rem;
   }
   body {
+    margin: auto;
     font-family: sans-serif;
+    background-color: ${({theme}) => theme.backgroundBase};
+    color: ${({theme}) => theme.textColorBase}; 
+  }
+
+  p {
+    color: ${({theme}) => theme.textColorP}; 
   }
   /* NextJS */
   html {

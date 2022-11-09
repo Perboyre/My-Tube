@@ -1,7 +1,6 @@
 import React from "react";
 import config from "../config.json";
 import styled from "styled-components";
-import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
 import FavoriteList from "../src/components/FavoriteList";
@@ -16,7 +15,6 @@ function HomePage() {
 
     return (
         <>
-            <CSSReset />
             <div style={estilosDaHomePage}>
                 {/* Prop Drilling */}
                 <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro} />
@@ -33,6 +31,7 @@ function HomePage() {
 export default HomePage;
 
 const StyledHeader = styled.div`
+  background-color: ${({theme}) => theme.backgroundLevel1}; 
   img {
     width: 80px;
     height: 80px;
@@ -58,7 +57,8 @@ const StyledBanner = styled.div`
 
 const Banner = (props) => {
     return <StyledBanner imgSrc={props.imgSrc}></StyledBanner>;
-  };
+};
+
 
 const Header = (props) => {
   return (
